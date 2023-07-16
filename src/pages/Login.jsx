@@ -10,7 +10,7 @@ const Login = () => {
             Join The Conversation, Meet New People, And Make Connections In One
             Shared Room
           </p>
-          <button className="btn btn-primary">Log In With Google</button>
+          <button className="btn btn-outline">Log In With Google</button>
         </div>
       </div>
     </div>
