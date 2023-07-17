@@ -2,7 +2,7 @@ import { useState } from "react"
 
 
 const SendMessage = () => {
-    const [value, setValue] = useState("")
+    const [value, setValue] = useState("");
     
 
     const handleSendMessage = (e) => {
