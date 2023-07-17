@@ -1,10 +1,17 @@
-import React from "react";
 import { UserAuth } from "../context/AuthContext";
 
 const Login = () => {
  
-  const { currentUser } = UserAuth();
-  console.log(currentUser)
+  const { currentUser, signinWithGoogle} = UserAuth();
+  
+  
+  const handleLogin = async () => {
+    try {
+      await signinWithGoogle();
+    } catch(error) {
+       console.log(error);
+    }
+  }
 
   return (
     <div className="hero min-h-screen bg-base-200">
@@ -15,7 +22,7 @@ const Login = () => {
             Join The Conversation, Meet New People, And Make Connections In One
             Shared Room
           </p>
-          <button className="btn btn-outline">Log In With Google</button>
+          <button onClick={handleLogin} className="btn btn-outline">Log In With Google</button>
         </div>
       </div>
     </div>
