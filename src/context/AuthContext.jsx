@@ -1,5 +1,6 @@
 import { createContext, useState, useContext }  from "react";
 import { GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
+import { auth } from "../firebase";
 
 // create context
 const AuthContext = createContext();
@@ -10,14 +11,15 @@ export const AuthProvider = ({children}) => {
 
 const signinWithgoogle = ()=> {
     const provider = new GoogleAuthProvider(); 
-    signInWithRedirect(auth, )
+    signInWithRedirect(auth, provider)
     
     
 }
 
     const value = {
         currentUser,
-        setCurrentUser
+        setCurrentUser,
+        signinWithgoogle
     }
 
     return (
