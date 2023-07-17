@@ -1,3 +1,4 @@
+import { Route, Routes } from "react-router-dom"
 import Navbar from "./components/Navbar"
 import ChatRoom from "./pages/ChatRoom"
 import Login from "./pages/Login"
@@ -6,8 +7,11 @@ function App() {
   return (
     <>
     <Navbar />
-    {/* <Login />  */}
-    <ChatRoom />
+    <Routes>
+      <Route path="/" element={<Login />} />
+      <Route path="/chat" element={<ChatRoom />} />
+      <Route />
+    </Routes>
     </>
   )
 }
