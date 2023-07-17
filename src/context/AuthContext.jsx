@@ -8,6 +8,7 @@ const AuthContext = createContext();
 // Provider Context
 export const AuthProvider = ({children}) => {
     const [currentUser, setCurrentUser] = useState('null');
+    const [loading, setLoading] = useState(true);
 
 // signin with google
 const signinWithGoogle = ()=> {
@@ -29,6 +30,7 @@ const logout = () => signOut(auth)
     useEffect(() => {
         const unsubcribe = onAuthStateChanged(auth, (user) => {
             setCurrentUser(user);
+            setLoading(false)
         });
 
         return unsubcribe;
@@ -36,7 +38,7 @@ const logout = () => signOut(auth)
 
     return (
         <AuthContext.Provider value={value}>
-            {children}
+            {!loading && children}
         </AuthContext.Provider>
     )
 }
