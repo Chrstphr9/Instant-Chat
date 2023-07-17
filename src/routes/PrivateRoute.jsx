@@ -1,9 +1,6 @@
-import React from 'react'
 
-const PrivateRoute = () => {
+export const PrivateRoute = ({children}) => {
   return (
     <div>PrivateRoute</div>
   )
 }
-
-export default PrivateRoute
