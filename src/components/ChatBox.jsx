@@ -1,24 +1,27 @@
 import { useEffect, useState } from "react";
 import Message from "./Message";
-import { collection, query, where, onSnapshot } from "firebase/firestore";
+import { collection, query, where, onSnapshot, orderBy, limit } from "firebase/firestore";
 import { db } from "../firebase";
 
 const ChatBox = () => {
-    const [messages, setMassages] = useState([]);  
+    const [messages, setMessages] = useState([]);  
 
   useEffect(() => {
+    
     const q = query(
-        collection(db, "messgaes")
+        collection(db, "messages"),
+        orderBy('createdAt'),
+        limit (50)
         );
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       const messages = [];
       querySnapshot.forEach((doc) => {
         messages.push({ ...doc.data(), id: doc.id });
       });
-      setMassages(messages);
+      setMessages(messages);
     });
 
-    return unsubscribe;
+    return () => unsubscribe;
   }, []);
 
   return (

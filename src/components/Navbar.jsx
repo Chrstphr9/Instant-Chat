@@ -17,7 +17,7 @@ const Navbar = () => {
       <div className="containerWrap flex justify-between">
         <a className="btn btn-ghost normal-case text-xl">InstantChat</a>
         {/* <button onClick={handleLogout} className="btn btn-outline">Logout</button> */}
-        {currentUser ? <button onClick={handleLogout}>Logout</button> : ''}
+        {currentUser ? <button onClick={handleLogout} className="btn btn-outline">Logout</button> : ''}
       </div>
     </div>
   );
