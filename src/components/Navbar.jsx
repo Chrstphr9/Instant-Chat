@@ -13,7 +13,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className="navbar bg-neutral text-neutral-content ">
+    <div className="navbar fixed z-10 bg-neutral text-neutral-content ">
       <div className="containerWrap flex justify-between">
         <a className="btn btn-ghost normal-case text-xl">InstantChat</a>
         {/* <button onClick={handleLogout} className="btn btn-outline">Logout</button> */}
